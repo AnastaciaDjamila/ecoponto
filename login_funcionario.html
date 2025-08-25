@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Funcionário - EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(242, 250, 242);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .logo {
+    background-color: white;
+    padding: 1px 33px 1px 33px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logo p {
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    padding:35px 75px  35px 35px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+
+  .login-container h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 26px;
+  }
+
+  .login-container p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .form-group i {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #2e7d32;
+    font-size: 16px;
+  }
+
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 10px 12px 30px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 14px;
+    background: #fefefe;
+    color: #000;
+    transition: all 0.3s ease;
+    
+  }
+.form-group select {
+   padding: 10px; 
+   
+    margin-left: 20px;
+     border: 0px solid #ccc;
+       border-radius: 1px;
+}
+  .form-group input:focus, .form-group select:focus {
+    border-color: #2e7d32;
+    outline: none;
+    box-shadow: 0 0 5px rgba(228, 232, 228, 0.5);
+    
+  }
+
+  .btn-login {
+    width: 100%;
+    padding:12px;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 7px;
+    margin-left: 20px;
+  }
+
+  .btn-login:hover {
+    background-color: #1b5e20;
+  }
+
+  .mensagem {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .link-cadastro {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .link-cadastro a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .link-cadastro a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="logo">
+<img src="log3.png" alt="EcoPonto Logo">
+<p>Acesse sua conta EcoPonto com número de telefone e senha.</p>
+</div>
+
+<div class="login-container">
+
+  <form id="loginForm">
+
+    <div class="form-group">
+      <i class="fas fa-phone"></i>
+      <input type="tel" id="telefone" placeholder="Número de telefone" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="senha" placeholder="Senha" required>
+    </div>
+
+        
+    <div class="form-group">
+        <i  class="fas fa-user-tie"></i>
+      <select id="tipoFuncionario" required>
+        <option value="" disabled selected>&nbsp;&nbsp;Selecione o tipo de funcionário</option>
+        <option value="administrativo">Administrativo</option>
+        <option value="operacional">Operacional</option>
+        <option value="supervisor">Supervisor</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-login"><i class="fas fa-paper-plane"></i> Entrar</button>
+    <div class="mensagem" id="mensagem"></div>
+  </form>
+
+</div>
+
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const mensagem = document.getElementById('mensagem');
+
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const telefone = document.getElementById('telefone').value;
+    const tipoFuncionario = document.getElementById('tipoFuncionario').value;
+    const senha = document.getElementById('senha').value;
+
+    if(telefone && tipoFuncionario && senha){
+      mensagem.style.color = 'green';
+      mensagem.textContent = 'Login realizado com sucesso!';
+      loginForm.reset();
+    } else {
+      mensagem.style.color = 'red';
+      mensagem.textContent = 'Preencha todos os campos corretamente!';
+    }
+  });
+</script>
+
+</body>
+</html>

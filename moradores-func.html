@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+    
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    padding: 0 10px;
+    margin-left: 240px;
+  
+}
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+   
+    .tabs { margin-left: 0; }
+  .tab-content {
+    
+        margin-left: 0;
+    max-width: 420px;
+    width: 100%;
+    justify-content: center;
+     margin: 0 auto;  
+   }
+  .tab-content.active{ 
+    margin-left: 0;
+    max-width: 420px;
+    width: 100%;
+       justify-content: center;
+        margin: 0 auto;  
+     }
+
+}
+.tab-btn {
+    flex: 1;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 2px;
+    background: #f1f1f1;  
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #444;
+}
+
+.tab-btn.active {
+    background: #28a745;
+    color: #f8f5f5;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.tab-btn:hover {
+    background: #218838;
+    color: #fff;
+}
+
+/* Conteúdo */
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    margin: 0 auto 80px;
+    max-width: 950px;
+    border-radius: 5px;
+    margin-left: 250px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+   
+}
+.tab-content.active {
+    display: block;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+input:focus, select:focus {
+    border-color: #28a745;
+}
+.submit-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #28a745;
+    color: #423e3e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.submit-btn:hover {
+    background: #218838;
+}
+
+
+
+/* TABELA HISTÓRICO */
+/* Contêiner para rolagem */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* evita quebrar colunas no celular */
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap; /* evita quebra de texto */
+}
+
+th {
+    background: #f9f9f9;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* Responsivo: diminui fonte em telas pequenas */
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+       <img src="log2.png" alt="EcoPonto Logo">
+        
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile (três pontos) -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header> 
+
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_funcionario.html" ><i class="fas fa-home"></i> Início</a>
+    <a href="moradores-func.html" class="active"><i class="fas fa-users"></i></i>Moradores</a>
+    <a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a>
+    
+
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li ><a href="tela_inicio_funcionario.html"><i class="fas fa-home"></i> Início</a></li>
+         <li class="active"><a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a></li>
+        <li><a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'adicionar')"  ><i class="fas fa-user-plus"></i> Adicionar Morador</button>
+    <button class="tab-btn" onclick="openTab(event, 'trocar')"><i class="fas fa-address-book"></i> Moradores Registrados</button>
+    
+</div>
+<br><br>
+<div id="adicionar" class="tab-content active">
+    <h3><i class="fas fa-user-plus" style="color:#28a745;"></i> Adicionar Morador</h3>
+    <form>
+    <label for="nome-morador">Nome Completo:</label>
+    <input type="text" id="nome-morador" name="nome" placeholder="Digite o nome do Morador" required>
+
+    <label for="sexo-morador">Sexo:</label>
+    <select id="sexo-morador" name="sexo" required>
+        <option value="">Selecione...</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+
+    </select>
+
+    <label for="data-nascimento">Data de Nascimento:</label>
+    <input type="date" id="data-nascimento" name="data_nascimento" required>
+
+    <label for="residencia-morador">Residência Atual:</label>
+    <input type="text" id="residencia-morador" name="residencia" placeholder="Digite a residência atual" required>
+
+    <label for="telefone-morador">Telefone:</label>
+    <input type="tel" id="telefone-morador" name="telefone" placeholder="Digite o número de telefone" required>
+
+    <label for="email-morador">Email:</label>
+    <input type="email" id="email-morador" name="email" placeholder="Digite o email do morador" required>
+
+    
+
+        <button type="submit" class="submit-btn submit-add">Adicionar Morador</button>
+    </form>
+</div>
+<div id="trocar" class="tab-content">
+    <h3><i class="fas fa-address-book" style="color:#28a745;"></i> Moradores Registrados</h3>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Data de Nascimento</th>
+                    <th>Residência</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Maria Silva</td>
+                    <td>Feminino</td>
+                    <td>12/03/1990</td>
+                    <td>Rua A, nº 45</td>
+                    <td>(11) 99999-0000</td>
+                    <td>maria@email.com</td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Carlos Pereira</td>
+                    <td>Masculino</td>
+                    <td>20/07/1985</td>
+                    <td>Av. Central, 123</td>
+                    <td>(11) 98888-1111</td>
+                    <td>carlos@email.com</td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>Ana Costa</td>
+                    <td>Feminino</td>
+                    <td>05/10/1995</td>
+                    <td>Rua das Flores, 67</td>
+                    <td>(11) 97777-2222</td>
+                    <td>ana@email.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+  
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+function openTab(evt, tabName) {
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    evt.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>

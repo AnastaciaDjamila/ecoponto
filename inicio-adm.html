@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* CONTAINER PRINCIPAL */
+.container {
+    margin-left: 240px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s forwards;
+}
+.card h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+
+
+/* TABELA HISTÓRICO */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background: #f9f9f9;
+    font-weight: bold;
+}
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* ANIMAÇÕES */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .desktop-menu { display: none; }
+    footer { display: flex; }
+    .menu-btn { display: block; }
+    .container { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+       <img src="log2.png" alt="EcoPonto Logo">
+        
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile (três pontos) -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header> 
+
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+ 
+ 
+            <a href="inicio-adm.html" class="active"><i class="fas fa-home"> </i>Início</a>
+            <a href="funcionario-adm.html"><i class="fas fa-user-tie"></i>Funcionários</a>
+            <a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a>
+            <a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a>
+   
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        
+        <li class="active"><a href="inicio-adm.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="funcionario-adm.html"><i class="fas fa-user-tie"></i>Funcionários</a></li>
+        <li><a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a></li>
+        <li> <a href="pontos-adm.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="perfil-adm.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+        
+     
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+         <li class="menu-item"><a href="perfil-adm.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+        
+    </ul>
+</nav>
+
+
+
+<!-- CONTEÚDO -->
+<div class="container">
+
+    <!-- HISTÓRICO -->
+    <div class="card fade-in" style="animation-delay:0.3s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-history" style="font-size:36px; color:#ff6b6b;"></i>
+            <div>
+                <h2>Histórico de trabalho</h2>
+                <p>Últimas recolhas com pontos:</p>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Funcionário</th>
+                <th>Pontos <br>
+                      adicionados/ trocados</th>
+                <th>Data</th>      
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Pedro</td>
+                <td>+15</td>
+                <td>05/08/2025</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Paulo</td>                
+                <td>+25</td>
+                <td>05/08/2025</td>
+            </tr>
+            <tr>
+                
+                <td>0</td>
+                <td>Victor</td>
+                <td>+8</td>
+                <td>05/08/2025</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar")?.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

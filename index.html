@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto</title>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="log.png" alt="Logo">
+            
+        </div>
+        <nav class="menu-desktop">
+            <div class="aa">
+       <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#contacto">Contato</a></div>
+            <div class="barra-pesquisa">
+                <input type="text" id="pesquisa" placeholder="Pesquisar...">
+                 <button><i class="fas fa-search"></i></button>
+            </div>
+            <a href="login-morador.html" class="btn-participe">Iniciar sessão</a>
+        </nav>
+        <div class="menu-icon">☰</div>
+    </div>
+    <nav class="menu-mobile">
+       <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#contacto">Contato</a>
+        <div class="barra-pesquisa">
+            <input type="text" id="pesquisa-mobile" placeholder="Pesquisar...">
+                       <button><i class="fas fa-search"></i></button>
+        </div>
+        <a href="login-morador.html" class="btn-participe">Iniciar sessão</a>
+    </nav>
+</header>
+
+
+    <div class="capa" id="inicio">
+    
+        <!-- Se a imagem estiver na mesma pasta, esse caminho funciona -->
+        <img src="eco2.png" alt="Imagem de capa">
+        <div class="conteudo">
+            <h1>EcoPonto</h1>
+            <p>Conectando comunidades para um mundo mais sustentável.<br>
+               Agende recolhas, contribua para o meio ambiente e receba recompensas.</p>
+            <a href="cadastro_morador.html" class="btn">Começar Agora</a>
+        </div>
+    </div>
+
+<div  class="container1" id="sobre" >    
+    <h2><span class="highlight">EcoPonto</span>: Transformando Resíduos em Oportunidades</h2>
+    <div class="cards">
+        <div  class="card">
+            <div class="icon"><i class="fas fa-recycle"></i></div>
+            <h3>O que é o EcoPonto</h3>
+            <p>
+                O EcoPonto é uma plataforma que incentiva moradores a separar resíduos recicláveis e não recicláveis, permitindo agendar recolhas ou entregar em pontos fixos de forma prática e sustentável.
+            </p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fas fa-leaf"></i></div>
+            <h3>Missão</h3>
+            <p class=".conteudo">
+                Promover a sustentabilidade, reduzindo a poluição e recompensando os participantes com benefícios, como alimentos, formações e saldo de internet, incentivando mudanças positivas nas comunidades.
+            </p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fas fa-seedling"></i></div>
+            <h3>Visão</h3>
+            <p>
+                Tornar-se referência nacional em gestão de resíduos, inspirando comunidades a adotarem práticas conscientes e transformando resíduos em oportunidades reais para um futuro mais verde.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<section class="education-section" id="residuos-section">
+    <div class="overlay"></div> <!-- Overlay transparente -->
+    <h2>Aprenda sobre Resíduos</h2>
+    <div class="education-grid">
+        <div class="block">
+            <img src="res2.jpeg" alt="Resíduos Recicláveis">
+            <div class="block-content">
+                <h3>Resíduos Recicláveis</h3>
+                <p>Materiais que podem ser reutilizados ou transformados em novos produtos, como papel, vidro, plástico, alumínio e metais.</p>
+            </div>
+        </div>
+        <div class="block nao-reciclavel">
+            <img src="res3.jpeg" alt="Resíduos Não Recicláveis">
+            <div class="block-content">
+                <h3>Resíduos Não Recicláveis</h3>
+                <p>Materiais que não podem ser reciclados e devem ser descartados corretamente, como restos de comida, fraldas, plásticos mistos e papéis sujos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="ecoponto-section"  id="como-funciona" aria-labelledby="como-funciona-ecoponto">
+    <header class="ecoponto-header">
+      <h2 id="como-funciona-ecoponto">Como Funciona o EcoPonto</h2>
+      <p>Passo a passo simples para participar e ganhar recompensas</p>
+    </header>
+
+    <div class="ecoponto-steps">
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-user-plus"></i></div>
+        <div class="step-text">
+          <h3>Cadastro</h3>
+          <p>Morador se cadastra na app ou fisicamente nos pontos de coleta.</p>
+        </div>
+      </article>
+
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-recycle"></i></div>
+        <div class="step-text">
+          <h3>Escolha do Tipo de Lixo</h3>
+          <p>Seleciona se o lixo é reciclável ou não reciclável.</p>
+        </div>
+      </article>
+
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></div>
+        <div class="step-text">
+          <h3>Agendamento</h3>
+          <p>Agenda coleta pela app ou espera o caminhão/posto móvel no bairro.</p>
+        </div>
+      </article>
+
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-weight-hanging"></i></div>
+        <div class="step-text">
+          <h3>Pesagem</h3>
+          <p>O peso ou quantidade é verificado por um agente parceiro.</p>
+        </div>
+      </article>
+
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-coins"></i></div>
+        <div class="step-text">
+          <h3>Atribuição de Pontos</h3>
+          <p>Pontos são adicionados ao perfil digital ou registrados manualmente.</p>
+        </div>
+      </article>
+
+      <article class="ecoponto-step">
+        <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-gift"></i></div>
+        <div class="step-text">
+          <h3>Troca por Recompensas</h3>
+          <p>Pontos podem ser trocados por prêmios nas feiras, centros e mercados parceiros.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  
+<div class="container4" id="contacto">
+    <div class="contact-box">
+        <h2><i class="fas fa-envelope"></i> Fale Conosco</h2>
+        <p>Tem alguma dúvida, sugestão ou problema? Envie sua mensagem e entraremos em contato!</p>
+        
+        <form>
+            <div class="form-group1">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-group1">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="form-group1">
+                <i class="fas fa-phone"></i>
+                <input type="tel" placeholder="Digite seu telefone">
+            </div>
+            <div class="form-group1">
+                <textarea placeholder="Digite sua mensagem" required></textarea>
+            </div>
+            <button type="submit" class="btn1"><i class="fas fa-paper-plane"></i> Enviar</button>
+        </form>
+    </div>
+</div>
+
+<!-- rodape -->
+<!-- rodape -->
+<footer class="rodape-tabela">
+  <table class="tabela-rodape">
+    <tr>
+      <td>
+        <h3><i class="fas fa-recycle"></i> Sobre o EcoPonto</h3>
+        <p>
+          O EcoPonto é uma iniciativa sustentável que promove a recolha de resíduos recicláveis e não recicláveis,
+          incentivando a comunidade a contribuir para um futuro mais limpo e consciente.
+        </p>
+      </td>
+
+      <td>
+        <h3><i class="fas fa-leaf"></i> Serviços</h3>
+        <ul>
+          <li><i class="fas fa-recycle"></i> Recolha de Resíduos</li>
+          <li><i class="fas fa-map-marker-alt"></i> Pontos Fixos de Entrega</li>
+          <li><i class="fas fa-gift"></i> Recompensas Sustentáveis</li>
+          <li><i class="fas fa-users"></i> Sensibilização Comunitária</li>
+        </ul>
+      </td>
+
+      <td>
+        <h3><i class="fas fa-envelope-open-text"></i> Contacto</h3>
+        <p><i class="fas fa-envelope"></i> ecoponto@gmail.com</p>
+        <p><i class="fas fa-phone-alt"></i> +244 935 078 713</p>
+        <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="rodape-final">
+    <p>&copy; 2025 EcoPonto. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+
+<script>
+// Ativar animação quando a seção entra na viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.querySelector('h2').classList.add('show');
+            entry.target.querySelector('.education-grid').classList.add('show');
+        }
+    });
+}, { threshold: 0.3 });
+
+observer.observe(document.getElementById('residuos-section'));
+</script>
+<script>
+// Abrir/fechar menu no mobile
+document.querySelector(".menu-icon").addEventListener("click", function () {
+    document.querySelector(".menu-mobile").classList.toggle("active");
+});
+
+// Fechar menu automaticamente ao mudar para desktop
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+        document.querySelector(".menu-mobile").classList.remove("active");
+    }
+});
+
+// Filtro de pesquisa (desktop e mobile)
+function filtrar(filtro) {
+    let conteudos = document.querySelectorAll(".conteudo");
+    conteudos.forEach(function (item) {
+        if (item.textContent.toLowerCase().includes(filtro)) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+document.getElementById("pesquisa").addEventListener("input", function () {
+    filtrar(this.value.toLowerCase());
+});
+document.getElementById("pesquisa-mobile").addEventListener("input", function () {
+    filtrar(this.value.toLowerCase());
+});
+</script>
+
+</body>
+</html>

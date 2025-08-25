@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Pontos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* Fade-in dos cards */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Pulsar ícones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.card i {
+    animation: pulse 2s infinite;
+}
+
+/* Barra de progresso animada */
+.progress-bar {
+    transition: width 1.2s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo da tabela de pontos */
+.tabela-pontos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.tabela-pontos th, .tabela-pontos td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.tabela-pontos th {
+    background: #f1f1f1;
+    color: #075e54;
+    font-size: 16px;
+}
+.tabela-pontos td {
+    background: #fff;
+    font-size: 15px;
+}
+.observacoes {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-left: 5px solid #4caf50;
+    border-radius: 10px;
+}
+.observacoes h3 {
+    margin-bottom: 10px;
+    color: #1b5e20;
+}
+.observacoes ul {
+    list-style: none;
+    padding-left: 0;
+}
+.observacoes li {
+    margin: 8px 0;
+    font-size: 14px;
+}
+.text-green { color: #2e7d32; }
+.text-yellow { color: #f9a825; }
+.text-red { color: #c62828; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+ 
+ 
+            <a href="inicio-adm.html" ><i class="fas fa-home"> </i>Início</a>
+            <a href="funcionario-adm.html"><i class="fas fa-user-tie"></i>Funcionários</a>
+            <a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a>
+            <a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a>
+   
+</footer>
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        
+        <li ><a href="inicio-adm.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="funcionario-adm.html" ><i class="fas fa-user-tie"></i>Funcionários</a></li>
+        <li><a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a></li>
+        <li class="active"> <a href="pontos-adm.html"  ><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="perfil-adm.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+        
+     
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login-morador.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</nav>
+
+<div class="container" style="display:flex; flex-direction:column; gap:15px;">
+
+    <!-- SALDO DE PONTOS -->
+    <div class="card fade-in" style="animation-delay:0.1s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-coins" style="font-size:36px; color:#f2b01e;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Saldo Atual</h2>
+                <p style="margin:0; font-size:16px; color:#333;"><strong>120 pontos</strong> disponíveis</p>
+            </div>
+        </div>
+        <div style="margin-top:10px; background:#e0e0e0; height:10px; border-radius:5px;">
+            <div class="progress-bar" style="width:0%; height:100%; background:#075e54; border-radius:5px;"></div>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO DE PONTOS -->
+    <div class="card fade-in" style="animation-delay:0.3s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-history" style="font-size:36px; color:#075e54;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Histórico de Pontos</h2>
+                <p style="margin:0; font-size:16px;">Últimos ganhos:</p>
+            </div>
+        </div>
+        <div style="overflow-x:auto; margin-top:10px;">
+            <table style="width:100%; border-collapse: collapse; font-size:14px;">
+                <thead>
+                    <tr style="background:#f1f1f1; color:#075e54;">
+                        <th style="padding:10px; text-align:left;">Data</th>
+                        <th style="padding:10px; text-align:left;">Material</th>
+                        <th style="padding:10px; text-align:left;">Quantidade(Kg)</th>
+                        <th style="padding:10px; text-align:left;">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:10px;">15/08/2025</td>
+                        <td>Plástico</td>
+                        <td>2</td>
+                        <td>25</td>
+                    </tr>
+                    <tr style="background:#f9f9f9;">
+                        <td style="padding:10px;">10/08/2025</td>
+                        <td>Papel</td>
+                        <td>3</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px;">05/08/2025</td>
+                        <td>Vidro</td>
+                        <td>4</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TABELA DE PONTOS POR RESÍDUO -->
+<!-- TABELA DE PONTOS POR RESÍDUO -->
+<div class="card fade-in" style="animation-delay:0.5s;">
+    <h2><i class="fas fa-recycle"></i> Tabela de Pontos por Resíduo</h2>
+    <table class="tabela-pontos">
+        <thead>
+            <tr>
+                <th><i class="fas fa-trash-alt"></i> Tipo de Resíduo</th>
+                <th><i class="fas fa-balance-scale"></i> Pontos por 1 Kg</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><i class="fas fa-bottle-water"></i> Plástico (PET, embalagens limpas)</td>
+                <td>10 pts</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-file-alt"></i> Papel & Cartão (seco e limpo)</td>
+                <td>6 pts</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-wine-bottle"></i> Vidro (garrafas e frascos)</td>
+                <td>5 pts</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-cogs"></i> Metais (latas)</td>
+                <td>15 pts</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-seedling"></i> Orgânicos (restos de comida, cascas, sobras)</td>
+                <td>3 pts</td>
+            </tr>
+
+            <tr>
+                <td><i class="fas fa-tree"></i> Madeira (pequenos pedaços secos)</td>
+                <td>6 pts</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="observacoes">
+        <h3><i class="fas fa-info-circle"></i> Observações Importantes</h3>
+        <ul>
+            <li><i class="fas fa-check-circle text-green"></i> <b>Bónus +5%</b> para resíduos <b>limpos e separados corretamente</b>.</li>
+            <li><i class="fas fa-exclamation-triangle text-yellow"></i> <b>-20%</b> se o material estiver <b>molhado ou misturado</b>.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+window.addEventListener('load', function(){
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        bar.style.width = '60%'; // saldo proporcional
+    });
+});
+
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

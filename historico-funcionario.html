@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Histórico</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* Cartão de histórico */
+.historico-card {
+    
+    padding: 20px;
+  
+    
+    margin-top: 20px;
+}
+
+.historico-card h2 {
+    text-align: center;
+    color: #075e54;
+    margin-bottom: 20px;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #f1f1f1;
+    color: #075e54;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+       <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_funcionario.html"><i class="fas fa-home"></i> Início</a>
+    <a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a>
+    <a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a>
+    
+
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li ><a href="tela_inicio_funcionario.html"><i class="fas fa-home"></i> Início</a></li>
+         <li><a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a></li>
+        <li><a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li class="active"><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item" class="active"><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container">
+
+    <!-- Histórico de Entregas -->
+    <div class="historico-card fade-in">
+        <h2><i class="fas fa-recycle"></i> Histórico de Pontos Adicionados </h2>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Resíduo</th>
+                <th>Peso</th>
+                <th>Pontos Recebidos</th>
+            </tr>
+            <tr>
+                <td>15/08/2025</td>
+                <td>Plástico</td>
+                <td>3 kg</td>
+                <td>+15</td>
+            </tr>
+            <tr>
+                <td>10/08/2025</td>
+                <td>Papel</td>
+                <td>5 kg</td>
+                <td>+25</td>
+            </tr>
+            <tr>
+                <td>05/08/2025</td>
+                <td>Vidro</td>
+                <td>4 kg</td>
+                <td>+8</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Histórico de Recompensas -->
+    <div class="historico-card fade-in">
+        <h2><i class="fas fa-gift"></i> Histórico de Entregas de Recompensas</h2>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Recompensa</th>
+                <th>Pontos Deduzidos</th>
+            </tr>
+            <tr>
+                <td>16/08/2025</td>
+                <td>Óleo 1L</td>
+                <td>-40</td>
+            </tr>
+            <tr>
+                <td>12/08/2025</td>
+                <td>Massa 1kg</td>
+                <td>-20</td>
+            </tr>
+            <tr>
+                <td>07/08/2025</td>
+                <td>Arroz 5kg</td>
+                <td>-100</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

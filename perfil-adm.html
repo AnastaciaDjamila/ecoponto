@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Meu Perfil</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* Cartão */
+.perfil-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.perfil-card h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* Foto */
+.profile-pic {
+    font-size: 100px;
+    color: #8d928d;
+    display: block;
+    margin: 0 auto 10px;
+     justify-content: center;
+     display: flex;
+}
+
+.alterar-foto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Tabs estilo */
+.tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    color: #333;
+}
+
+.tab:hover, .tab.active {
+    background: #e9ecef;
+    color: #2e7d32;
+}
+
+.tab-content {
+    display: none;
+    padding: 15px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #256d28;
+}
+
+/* Fade animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+          <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+<!-- MENU INFERIOR MOBILE -->
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+ 
+ 
+            <a href="inicio-adm.html" ><i class="fas fa-home"> </i>Início</a>
+            <a href="funcionario-adm.html" class="active"><i class="fas fa-user-tie"></i>Funcionários</a>
+            <a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a>
+            <a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a>
+   
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        
+        <li><a href="inicio-adm.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="funcionario-adm.html"><i class="fas fa-user-tie"></i>Funcionários</a></li>
+        <li><a href="moradores-adm.html"><i class="fas fa-users"></i>Moradores</a></li>
+        <li> <a href="pontos-adm.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-adm.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li  class="active"><a href="perfil-adm.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+        
+     
+    </ul>
+</nav>
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container">
+
+    <div class="perfil-card">
+      
+
+        <!-- Foto -->
+        <i class="fas fa-user-circle profile-pic"></i>
+        <div class="alterar-foto">
+            <a href="#" class="btn"><i class="fas fa-camera"></i> Alterar Foto</a>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('info')"><i class="fas fa-id-card"></i> Informações</div>
+            <div class="tab" onclick="showTab('edit')"><i class="fas fa-edit"></i> Editar Perfil</div>
+            <div class="tab" onclick="showTab('password')"><i class="fas fa-lock"></i> Alterar Senha</div>
+        </div>
+
+        <!-- Conteúdo Tabs -->
+        <div id="info" class="tab-content active">
+            <p><strong>ID:</strong> 01</p>
+            <p><strong>Nome:</strong> João Silva</p>
+             <p><strong>Cargo:</strong> kkkkk</p>
+            <p><strong>Email:</strong> joao.silva@email.com</p>
+            <p><strong>Telefone:</strong> +244 999 000 111</p>
+            <p><strong>Endereço:</strong> Luanda, Angola</p>
+        </div>
+
+        <div id="edit" class="tab-content">
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" value="João Silva">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" value="joao.silva@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" value="+244 999 000 111">
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" value="Luanda, Angola">
+                </div>
+                <div style="text-align: center;">
+                    <a href="#" class="btn">Salvar Alterações</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="password" class="tab-content">
+            <form>
+                <div class="form-group">
+                    <label for="senhaAtual">Senha Atual</label>
+                    <input type="password" id="senhaAtual" placeholder="Digite sua senha atual">
+                </div>
+                <div class="form-group">
+                    <label for="novaSenha">Nova Senha</label>
+                    <input type="password" id="novaSenha" placeholder="Digite a nova senha">
+                </div>
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme a nova senha">
+                </div>
+                <div style="text-align: center;">
+                    <a href="#" class="btn">Atualizar Senha</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+function showTab(tabId) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+    document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>

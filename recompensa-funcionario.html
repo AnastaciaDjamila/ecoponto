@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Recompensas</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* Fade-in dos cards */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* Pulsar ícones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+.card i {
+    animation: pulse 2s infinite;
+}
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+    <!-- Botão menu mobile -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_funcionario.html" ><i class="fas fa-home"></i> Início</a>
+    <a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a>
+    <a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa-funcionario.html" class="active"><i class="fas fa-gift"></i> Recompensas</a>
+    
+
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li ><a href="tela_inicio_funcionario.html"><i class="fas fa-home"></i> Início</a></li>
+         <li><a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a></li>
+        <li><a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li class="active"><a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<div class="container" style="display:flex; flex-direction:column; gap:15px;">
+
+    <!-- LISTA DE RECOMPENSAS -->
+    <div class="card fade-in" style="animation-delay:0.5s; padding:15px;">
+        <table style="width:100%; border-collapse: collapse; font-size:14px;">
+            <thead>
+                <tr style="background:#f1f1f1; color:#075e54;">
+                    <th style="padding:10px; text-align:left;">Recompensa</th>
+                    <th style="padding:10px; text-align:left;">Pontos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Internet -->
+                <tr><td style="padding:10px;"><i class="fas fa-wifi" style="color:#25d366;"></i> 500MB de Internet</td><td>40</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-wifi" style="color:#128c7e;"></i> 1GB de Internet</td><td>70</td></tr>
+                
+                <!-- Cesta Básica -->
+                <tr><td style="padding:10px;"><i class="fas fa-utensils" style="color:#e67e22;"></i> Arroz branco – 10kg</td><td>120</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-bread-slice" style="color:#e67e22;"></i> Farinha de milho – 5kg</td><td>110</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-seedling" style="color:#27ae60;"></i> Feijão – 5kg</td><td>90</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-pizza-slice" style="color:#c0392b;"></i> Massa – 2 pacotes</td><td>50</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-cube" style="color:#95a5a6;"></i> Açúcar – 5kg</td><td>60</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-shaker" style="color:#7f8c8d;"></i> Sal – 2kg</td><td>20</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-oil-can" style="color:#f39c12;"></i> Óleo – 2L</td><td>80</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-blender" style="color:#2980b9;"></i> Leite em pó – 1kg</td><td>150</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-coffee" style="color:#6f4e37;"></i> Café solúvel – 250g</td><td>70</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-mug-hot" style="color:#d35400;"></i> Chá – 1 caixa</td><td>40</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-cookie-bite" style="color:#d35400;"></i> Bolacha – 1 pacote</td><td>30</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-fish" style="color:#2980b9;"></i> Conservas – 4 latas</td><td>90</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-wine-bottle" style="color:#c0392b;"></i> Molho de tomate – 2 frascos</td><td>40</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-bread-slice" style="color:#f1c40f;"></i> Farinha de trigo – 2kg</td><td>50</td></tr>
+
+                <!-- Higiene -->
+                <tr><td style="padding:10px;"><i class="fas fa-soap" style="color:#3498db;"></i> Sabão em barra – 12 unid.</td><td>30</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-broom" style="color:#8e44ad;"></i> Sabão em pó – 2kg</td><td>60</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-spray-can" style="color:#16a085;"></i> Detergente – 1L</td><td>40</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-toilet-paper" style="color:#7f8c8d;"></i> Papel higiénico – 12 rolos</td><td>70</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-tooth" style="color:#e74c3c;"></i> Pasta dentífrica – 2 unid.</td><td>30</td></tr>
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-toothbrush" style="color:#e67e22;"></i> Escovas de dentes – 2 unid.</td><td>30</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-pump-soap" style="color:#2c3e50;"></i> Água sanitária – 2L</td><td>40</td></tr>
+
+                <!-- Educação -->
+                <tr style="background:#f9f9f9;"><td style="padding:10px;"><i class="fas fa-laptop-code" style="color:#2ecc71;"></i> Bolsa para Curso Profissional</td><td>300</td></tr>
+                <tr><td style="padding:10px;"><i class="fas fa-graduation-cap" style="color:#2980b9;"></i> Bolsa de Estudo</td><td>500</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

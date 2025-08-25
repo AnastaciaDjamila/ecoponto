@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Pontos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_morador.css">
+<style>
+/* Fade-in dos cards */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Pulsar ícones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.card i {
+    animation: pulse 2s infinite;
+}
+
+/* Barra de progresso animada */
+.progress-bar {
+    transition: width 1.2s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="log.png" alt="EcoPonto Logo">
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <button><i class="fas fa-home"></i> Início</button>
+    <button class="active"><i class="fas fa-coins"></i> Pontos</button>
+    <button><i class="fas fa-gift"></i> Recompensas</button>
+    <button><i class="fas fa-calendar-check"></i> Agendamento</button>
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li><i class="fas fa-home"></i> Início</li>
+        <li class="active"><i class="fas fa-coins"></i> Pontos</li>
+        <li><i class="fas fa-gift"></i> Recompensas</li>
+        <li><i class="fas fa-calendar-check"></i> Agendamento</li>
+        <li><i class="fas fa-recycle"></i> Histórico</li>        
+        <li><i class="fas fa-user"></i> Meu Perfil</li>
+        <li><i class="fas fa-sign-out-alt"></i> Sair</li>
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <li class="menu-item"><i class="fas fa-user"></i> Meu Perfil</li>
+        <li class="menu-item"><i class="fas fa-recycle"></i> Histórico</li>
+        <li class="menu-item"><i class="fas fa-sign-out-alt"></i> Sair</li>
+    </ul>
+</nav>
+
+<div class="container" style="display:flex; flex-direction:column; gap:15px;">
+
+    <!-- SALDO DE PONTOS -->
+    <div class="card fade-in" style="animation-delay:0.1s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-coins" style="font-size:36px; color:#f2b01e;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Saldo Atual</h2>
+                <p style="margin:0; font-size:16px; color:#333;"><strong>120 pontos</strong> disponíveis</p>
+            </div>
+        </div>
+        <div style="margin-top:10px; background:#e0e0e0; height:10px; border-radius:5px;">
+            <div class="progress-bar" style="width:0%; height:100%; background:#25d366; border-radius:5px;"></div>
+        </div>
+    </div>
+
+    <!-- METAS E RECOMPENSAS -->
+    <div class="card fade-in" style="animation-delay:0.2s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-gift" style="font-size:36px; color:#ff9800;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Metas & Recompensas</h2>
+                <p style="margin:0; font-size:16px;">🎁 Troque <strong>50 pontos</strong> por créditos de internet</p>
+                <p style="margin:0; font-size:16px;">🎫 100 pontos = Desconto em compras</p>
+                <p style="margin:0; font-size:16px;">🍃 200 pontos = Kit sustentável</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO DE PONTOS -->
+    <div class="card fade-in" style="animation-delay:0.3s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-history" style="font-size:36px; color:#075e54;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Histórico de Pontos</h2>
+                <p style="margin:0; font-size:16px;">Últimos ganhos:</p>
+            </div>
+        </div>
+        <div style="overflow-x:auto; margin-top:10px;">
+            <table style="width:100%; border-collapse: collapse; font-size:14px;">
+                <thead>
+                    <tr style="background:#f1f1f1; color:#075e54;">
+                        <th style="padding:10px; text-align:left;">Data</th>
+                        <th style="padding:10px; text-align:left;">Material</th>
+                        <th style="padding:10px; text-align:left;">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:10px;">15/08/2025</td>
+                        <td>Plástico</td>
+                        <td>25</td>
+                    </tr>
+                    <tr style="background:#f9f9f9;">
+                        <td style="padding:10px;">10/08/2025</td>
+                        <td>Papel</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px;">05/08/2025</td>
+                        <td>Vidro</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+window.addEventListener('load', function(){
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        bar.style.width = '60%'; // saldo proporcional
+    });
+});
+
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

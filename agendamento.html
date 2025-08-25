@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto - Agendamento</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* Estilo do formulário de agendamento */
+.agendamento-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.agendamento-card h2 {
+    text-align: center;
+    color: #075e54;
+    margin-bottom: 20px;
+}
+
+.agendamento-card label {
+    font-weight: bold;
+    margin-top: 12px;
+    display: block;
+    color: #333;
+}
+
+.agendamento-card input,
+.agendamento-card select,
+.agendamento-card textarea,
+.agendamento-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.agendamento-card button {
+    background: #054408;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.agendamento-card button:hover {
+    background: #07510b;
+}
+
+.success {
+    text-align: center;
+    color: #04940b;
+    font-weight: bold;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+          <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_morador.html" ><i class="fas fa-home"></i> Início</a>
+    <a href="ponto_morador.html" class="active"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa_morador.html"><i class="fas fa-gift"></i> Recompensas</a>
+    <a href="agendamento.html"  class="active"><i class="fas fa-calendar-check"></i> Agendamento</a>
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li><a href="tela_inicio_morador.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="ponto_morador.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa_morador.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li  class="active"><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+        <li><a href="historico.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login-morador.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login-morador.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</nav>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container">
+
+    <!-- Formulário de Agendamento -->
+    <div class="agendamento-card fade-in">
+        <h2>📅 Agendamento de Recolha</h2>
+        <form id="agendamentoForm">
+            <label for="data"> Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="hora"> Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <label for="tipo"> Tipo de Resíduo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecione...</option>
+                <option value="plastico">Plástico</option>
+                <option value="vidro">Vidro</option>
+                <option value="papel">Papel</option>
+                <option value="metal">Metal</option>
+                <option value="organico">Orgânico</option>
+                <option value="organico">Outros</option>
+            </select>
+
+            <label for="endereco"> Endereço:</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Digite o endereço" required>
+
+            <label for="observacoes">📝 Observações:</label>
+            <textarea id="observacoes" name="observacoes" rows="3" placeholder="Ex: portão azul, apartamento 3..."></textarea>
+
+            <button type="submit">✅ Confirmar Agendamento</button>
+        </form>
+        <div class="success" id="mensagemSucesso"></div>
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+// Impedir que o usuário selecione data anterior a hoje
+const hoje = new Date().toISOString().split("T")[0];
+document.getElementById("data").setAttribute("min", hoje);
+
+// Submeter formulário
+document.getElementById("agendamentoForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    const endereco = document.getElementById("endereco").value;
+    const data = document.getElementById("data").value;
+    const hora = document.getElementById("hora").value;
+
+    document.getElementById("mensagemSucesso").innerText = 
+      `✅ Agendamento confirmado para ${data} às ${hora} em ${endereco}`;
+    this.reset();
+});
+
+// Google Places Autocomplete
+function initAutocomplete() {
+    const input = document.getElementById("endereco");
+    new google.maps.places.Autocomplete(input, {
+        types: ["geocode"],
+        componentRestrictions: { country: "ao" } // restringe Angola
+    });
+}
+
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places&callback=initAutocomplete" async defer></script>
+
+</body>
+</html>

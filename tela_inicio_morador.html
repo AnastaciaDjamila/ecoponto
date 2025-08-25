@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+
+</head>
+<body>
+
+<header>
+    <div class="logo">
+       <img src="log2.png" alt="EcoPonto Logo">
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile (três pontos) -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header>
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_morador.html" class="active"><i class="fas fa-home"></i> Início</a>
+    <a href="ponto_morador.html"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa_morador.html"><i class="fas fa-gift"></i> Recompensas</a>
+    <a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a>
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li class="active"><a href="tela_inicio_morador.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="ponto_morador.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa_morador.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+        <li><a href="historico.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login-morador.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login-morador.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</nav>
+
+
+
+
+<div class="container" style="display:flex; flex-direction:column; gap:15px;">
+
+    <!-- LINHA DE CARDS SUPERIORES -->
+    <div style="display:flex; gap:15px; flex-wrap: wrap;">
+        <!-- SALDO DE PONTOS -->
+        <div class="card fade-in" style="flex:1; min-width:200px; animation-delay:0.1s;">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <i class="fas fa-coins" style="font-size:36px; color:#f2b01e;"></i>
+                <div>
+                    <h2 style="margin-bottom:5px;">Saldo de Pontos</h2>
+                    <p style="margin:0; font-size:16px; color:#333;">
+                        <strong>{{ saldo }} pontos</strong> disponíveis
+                    </p>
+                </div>
+            </div>
+            <div style="margin-top:10px; background:#e0e0e0; height:10px; border-radius:5px;">
+                <div class="progress-bar" style="width:0%; height:100%; background:#075e54; border-radius:5px;"></div>
+            </div>
+        </div>
+
+        <!-- PRÓXIMO AGENDAMENTO -->
+        <div class="card fade-in" style="flex:1; min-width:200px; animation-delay:0.2s;">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <i class="fas fa-calendar-check" style="font-size:36px; color:#075e54;"></i>
+                <div>
+                    <h2 style="margin-bottom:5px;">Próximo Agendamento</h2>
+                    {% if agendamento %}
+                    <p style="margin:0; font-size:16px;">
+                        {{ agendamento.data }} - <strong>{{ agendamento.material }}</strong>
+                    </p>
+                    {% else %}
+                    <p style="margin:0; font-size:16px; color:#777;">Nenhum agendamento</p>
+                    {% endif %}
+                </div>
+            </div>
+            <p style="margin-top:8px; font-size:14px; color:#555;">
+                Separe corretamente os materiais para garantir seus pontos.
+            </p>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO DE RECOLHAS -->
+    <div class="card fade-in" style="animation-delay:0.3s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-history" style="font-size:36px; color:#ff6b6b;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Histórico de Recolhas</h2>
+                <p style="margin:0; font-size:16px;">Últimas recolhas com pontos:</p>
+            </div>
+        </div>
+        <div style="overflow-x:auto; margin-top:10px;">
+            <table style="width:100%; border-collapse: collapse; font-size:14px;">
+                <thead>
+                    <tr style="background:#f1f1f1; color:#075e54;">
+                        <th style="padding:10px; text-align:left;">Data</th>
+                        <th style="padding:10px; text-align:left;">Hora</th>
+                        <th style="padding:10px; text-align:left;">Material</th>
+                        <th style="padding:10px; text-align:left;">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in historico %}
+                    <tr {% if loop.index is even %}style="background:#f9f9f9;"{% endif %}>
+                        <td style="padding:10px;">{{ item.data }}</td>
+                        <td style="padding:10px;">{{ item.hora }}</td>
+                        <td>{{ item.material }}</td>
+                        <td>{{ item.pontos }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" style="padding:10px; text-align:center; color:#777;">
+                            Nenhum histórico encontrado
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- AVISOS E RECOMPENSAS -->
+    <div class="card fade-in" style="animation-delay:0.4s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-bullhorn" style="font-size:36px; color:#ff9800;"></i>
+            <div>
+                <h2 style="margin-bottom:5px;">Avisos & Recompensas</h2>
+                <p style="margin:0; font-size:16px;">📢 Novo ponto de entrega disponível no bairro Central.</p>
+                <p style="margin:0; font-size:16px; margin-top:5px;">🎁 Troque <strong>50 pontos</strong> por créditos de internet.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ANIMAÇÕES CSS -->
+<style>
+/* Fade-in dos cards */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Progress bar animada */
+.progress-bar {
+    transition: width 1s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<!-- JS para animar barra de progresso -->
+<script>
+window.addEventListener('load', function(){
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        bar.style.width = '60%'; // valor do saldo atual
+    });
+    
+});
+
+
+</script>
+
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

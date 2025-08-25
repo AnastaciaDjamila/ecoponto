@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Morador - EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('eco2.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 0;
+  }
+
+  .container4 {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 460px;
+    background: rgba(255,255,255,0.95);
+    padding: 35px 55px 15px 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .container4 h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 15px;
+  }
+
+  .container4 p {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .form-group1 {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .form-group1 i {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #2e7d32;
+  }
+
+  .form-group1 input {
+    width: 100%;
+    padding: 10px 0px 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group1 input:focus {
+    border-color: #2e7d32;
+    outline: none;
+  }
+
+    .form-group1 select {
+    width: 100%;
+    padding: 10px 0px 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group1 select:focus {
+    border-color: #2e7d32;
+    outline: none;
+  }
+
+  .btn1 {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+  }
+
+  .btn1:hover {
+    background-color: #1b5e20;
+  }
+
+  .mensagem {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+.login-link {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .login-link a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+    .linha-dupla {
+  display: flex;
+  gap: 10px;
+}
+
+.linha-dupla .form-group1 {
+  flex: 1;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="container4">
+  <h2><i class="fas fa-user"></i> Cadastro de Morador</h2>
+  <p>Preencha os dados abaixo para se cadastrar no EcoPonto.</p>
+  <form id="cadastroForm" >
+    <div class="form-group1">
+      <i class="fas fa-user"></i>
+      <input type="text" id="nome" placeholder="Nome Completo" required>
+    </div>
+
+<!-- Linha com Sexo e Data de Nascimento -->
+<div class="linha-dupla">
+  <div class="form-group1">
+      <i class="fas fa-venus-mars"></i> <!-- Ícone de sexo -->
+      <select id="sexo" required>
+        <option value="">Selecione o sexo</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+      </select>
+  </div>
+
+  <div class="form-group1">
+    <i class="fas fa-calendar-alt"></i>
+    <input type="text" id="data_nascimento" name="data_nascimento" 
+           placeholder="Data de Nascimento" required
+           onfocus="(this.type='date')" 
+           onblur="if(!this.value) this.type='text'">
+  </div>
+</div>
+
+
+
+    <div class="form-group1">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="email" placeholder="E-mail" required>
+    </div>
+    <div class="form-group1">
+      <i class="fas fa-phone"></i>
+      <input type="tel" id="telefone" placeholder="Telefone">
+    </div>
+    <div class="form-group1">
+      <i class="fas fa-map-marker-alt"></i>
+      <input type="text" id="endereco" placeholder="Endereço (Província, Município, Bairro, Casa)" required>
+    </div>
+    <div class="form-group1">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="senha" placeholder="Senha" required>
+    </div>
+    <div class="form-group1">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="confirmarSenha" placeholder="Confirmar Senha" required>
+    </div>
+    <button type="submit" class="btn1"><i class="fas fa-paper-plane"></i> Cadastrar</button>
+   
+  </form>
+      <div class="login-link">
+    Já está registrado? <a href="login.html">Faça login</a>
+    </div>
+  </div>
+</div>
+<!-- POPUP CENTRAL -->
+<div id="mensagemPopup" class="mensagem-popup" style="display:none;">
+  <div class="mensagem-conteudo" id="mensagemTexto"></div>
+</div>
+
+<style>
+  .mensagem-popup{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;            /* fica invisível até o JS ligar */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .mensagem-conteudo{
+    background: #fff;
+    padding: 18px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    min-width: 260px;
+    max-width: 90vw;
+  }
+</style>
+
+<script>
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const senha = document.getElementById("senha").value;
+  const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+  if (senha !== confirmarSenha) {
+    mostrarMensagem("❌ As senhas não coincidem!", "red");
+    return;
+  }
+
+  const payload = {
+    nome: document.getElementById("nome").value.trim(),
+    sexo: document.getElementById("sexo").value || null,
+    data_nascimento: document.getElementById("data_nascimento").value || null,
+    email: document.getElementById("email").value.trim(),
+    telefone: document.getElementById("telefone").value.trim(),
+    endereco: document.getElementById("endereco").value.trim(),
+    senha: senha
+  };
+
+  try {
+    const response = await fetch("/cadastro", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload) // envia todos os campos, não só senha
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      mostrarMensagem(result.message || "✅ Cadastro realizado com sucesso!", "green");
+      form.reset();
+    } else {
+      mostrarMensagem(result.error || "⚠️ Erro ao cadastrar.", "red");
+    }
+  } catch (err) {
+    mostrarMensagem("🚫 Falha de rede ou servidor indisponível.", "red");
+  }
+});
+
+</script>
+
+
+
+
+</body>
+</html>

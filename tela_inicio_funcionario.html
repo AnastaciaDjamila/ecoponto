@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoPonto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="tela_inicio_marador.css">
+<style>
+/* CONTAINER PRINCIPAL */
+.container {
+    margin-left: 240px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s forwards;
+}
+.card h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+/* GRID PARA PONTOS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* TABELA HISTÓRICO */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background: #f9f9f9;
+    font-weight: bold;
+}
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* ANIMAÇÕES */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .desktop-menu { display: none; }
+    footer { display: flex; }
+    .menu-btn { display: block; }
+    .container { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+       <img src="log2.png" alt="EcoPonto Logo">
+        
+    </div>
+
+    <!-- Nome do morador desktop -->
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i> João
+    </div>
+
+    <!-- Botão menu mobile (três pontos) -->
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></button>
+</header> 
+
+
+<!-- MENU INFERIOR MOBILE -->
+<footer>
+    <a href="tela_inicio_funcionario.html" class="active"><i class="fas fa-home"></i> Início</a>
+    <a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a>
+    <a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a>
+    <a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a>
+    
+
+</footer>
+
+<!-- MENU LATERAL DESKTOP -->
+<nav class="desktop-menu">
+    <ul>
+        <li class="active"><a href="tela_inicio_funcionario.html"><i class="fas fa-home"></i> Início</a></li>
+         <li><a href="moradores-func.html"><i class="fas fa-users"></i></i>Moradores</a></li>
+        <li><a href="pontos-funcionario.html"><i class="fas fa-coins"></i> Pontos</a></li>
+        <li><a href="recompensa-funcionario.html"><i class="fas fa-gift"></i> Recompensas</a></li>
+        <li><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>        
+        <li><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+<!-- MENU LATERAL MOBILE -->
+<!-- MENU LATERAL MOBILE -->
+<nav id="sidebar">
+    <ul>
+        <!-- Usuário no topo -->
+        <li class="user-top">
+            <i class="fas fa-user-circle"></i>
+            <span>João</span>
+        </li>
+        <!-- Itens do menu -->
+        <li class="menu-item"><a href="perfil-funcionario.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li class="menu-item"><a href="historico-funcionario.html"><i class="fas fa-recycle"></i> Histórico</a></li>
+        <li class="menu-item"><a href="login_funcionario.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<!-- CONTEÚDO -->
+<div class="container">
+
+    <!-- PONTOS -->
+    <div class="grid">
+        <div class="card fade-in" style="animation-delay:0.1s;">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <i class="fas fa-plus-circle" style="font-size:36px; color:#28a745;"></i>
+                <div>
+                    <h2>Pontos adicionados</h2>
+                    <p style="font-size:25px; color:#116123;";> <strong>+120</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="card fade-in" style="animation-delay:0.2s;">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <i class="fas fa-exchange-alt" style="font-size:36px; color:#ff9800;"></i>
+                <div>
+                    <h2>Pontos trocados</h2>
+                    <p style="font-size:25px; color:#b11237;"><strong>-45</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div class="card fade-in" style="animation-delay:0.3s;">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <i class="fas fa-history" style="font-size:36px; color:#ff6b6b;"></i>
+            <div>
+                <h2>Histórico de trabalho</h2>
+                <p>Últimas recolhas com pontos:</p>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Morador</th>
+                <th>Resíduo</th>
+                <th>Peso</th>
+                <th>Pontos <br>
+                      adicionados/ trocados</th>
+            </tr>
+            <tr>
+                <td>15/08/2025</td>
+                <td>Maria</td>
+                <td>Plástico</td>
+                <td>3 kg</td>
+                <td>+15</td>
+            </tr>
+            <tr>
+                <td>10/08/2025</td>
+                <td>Carlos</td>
+                <td>Papel</td>
+                <td>5 kg</td>
+                <td>+25</td>
+            </tr>
+            <tr>
+                <td>05/08/2025</td>
+                <td>Ana</td>
+                <td>Vidro</td>
+                <td>4 kg</td>
+                <td>+8</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar")?.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
