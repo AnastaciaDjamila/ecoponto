@@ -137,6 +137,39 @@
   .link-cadastro a:hover {
     text-decoration: underline;
   }
+    /* Mensagem Popup */
+    .mensagem-popup {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none; 
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .mensagem-conteudo {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      font-size: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      min-width: 280px;
+      max-width: 90vw;
+      animation: slideUp 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </style>
 </head>
 <body>
@@ -166,25 +199,58 @@
   </div>
 </div>
 
-<script>
-  const loginForm = document.getElementById('loginForm');
-  const mensagem = document.getElementById('mensagem');
 
-  loginForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
+  <!-- Popup de Mensagens -->
+  <div id="mensagemPopup" class="mensagem-popup">
+    <div id="mensagemConteudo" class="mensagem-conteudo"></div>
+  </div>
 
-    if(email && senha){
-      mensagem.style.color = 'green';
-      mensagem.textContent = 'Login realizado com sucesso!';
-      loginForm.reset();
-    } else {
-      mensagem.style.color = 'red';
-      mensagem.textContent = 'Preencha todos os campos corretamente!';
+  <script>
+    const form = document.getElementById("loginForm");
+    const popup = document.getElementById("mensagemPopup");
+    const mensagemConteudo = document.getElementById("mensagemConteudo");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const telefone = document.getElementById("telefone").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+
+      if (!telefone || !senha) {
+        mostrarMensagem("⚠️ Preencha todos os campos corretamente!", "red");
+        return;
+      }
+
+      const payload = { telefone, senha };
+
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          mostrarMensagem(result.message || "✅ Login realizado com sucesso!", "green");
+          form.reset();
+          setTimeout(() => { window.location.href = "/dashboard"; }, 2000);
+        } else {
+          mostrarMensagem(result.error || "🚫 Telefone ou senha incorretos.", "red");
+        }
+      } catch (err) {
+        mostrarMensagem("❌ Falha de rede ou servidor indisponível.", "red");
+      }
+    });
+
+    function mostrarMensagem(texto, cor) {
+      mensagemConteudo.textContent = texto;
+      mensagemConteudo.style.color = cor;
+      popup.style.display = "flex";
+
+      setTimeout(() => { popup.style.display = "none"; }, 2500);
     }
-  });
-</script>
-
+  </script>
 </body>
 </html>
