@@ -1,1 +1,3 @@
-web: gunicorn cadastro_morador:app
+web: gunicorn main:app
+
+
